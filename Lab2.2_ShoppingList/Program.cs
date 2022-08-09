@@ -1,6 +1,5 @@
 ﻿List<string> shoppingCart = new List<string>();
 
-
 // Display at least 8 item names and prices
 var shoppingList = new Dictionary<string, decimal>()
 {
@@ -14,8 +13,9 @@ var shoppingList = new Dictionary<string, decimal>()
     {"kale", 3.97m }
 };
 Console.WriteLine();
-Console.WriteLine("Welcome to CrunchyMart!");
-Console.WriteLine("==============");
+Console.WriteLine($"\tWelcome to CrunchyMart!");
+Console.WriteLine("====================================");
+
 
 // Call method is display shopping list for user
 displayShoppingList();
@@ -119,10 +119,11 @@ void addAnotherItem()
 
  void displayShoppingList()
 {
+    Console.WriteLine("{0,-8} {1, -15} {2,-7}", "Num", "Item", "Price");
     int itemNumber = 1;
     foreach (var food in shoppingList)
-    {
-        Console.WriteLine($"{itemNumber++}. {food.Key}: ${food.Value}");
+    { 
+        Console.WriteLine("{0,-8} {1,-15} {2,-7}",$"{itemNumber++}.", $"{food.Key}:", $"{food.Value}");
     }
 }
 
@@ -152,16 +153,18 @@ void printShoppingReceipt()
 
    foreach (string item in priceSort)
     {
-        Console.WriteLine($"{item}: ${shoppingList[item]}");
+        Console.WriteLine("{0,-15} {1,-5}", $"{item}:", $"${shoppingList[item]}");
     }
+    Console.WriteLine();
+    // Display the sum of the items ordered
+    Console.WriteLine($"Your order total is: ${totalPrice}.");
     Console.WriteLine();
     Console.WriteLine($"The most expensive item you purchased was: {shoppingCart.Max()}");
     Console.WriteLine($"The most least expensive item you purchased was: {shoppingCart.Min()}");
 
     Console.WriteLine();
 
-    // Display the sum of the items ordered
-    Console.WriteLine($"Your order total is: ${totalPrice}.");
+   
 }
 
 
