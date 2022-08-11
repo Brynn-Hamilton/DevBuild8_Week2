@@ -103,10 +103,12 @@ void StudentDatabaseCheck(int validEntry)
             if (studentDetail == "hometown" || studentDetail == "home" || studentDetail == "town")
             {
                 Console.WriteLine($"\n{name[validEntry]} is from {hometown[validEntry]}!");
+                invalidCategoryInput = false;
             }
             else if (studentDetail == "favorite food" || studentDetail == "food")
             {
                 Console.WriteLine($"\n{name[validEntry]}'s favorite food is/are {favoriteFood[validEntry]}!");
+                invalidCategoryInput = false;
             }
             else
             {
